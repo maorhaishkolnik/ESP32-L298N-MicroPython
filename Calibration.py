@@ -14,6 +14,6 @@ DUTY = <Value between 0 - 65536>
 
 Motor = MOTOR(IN1, IN2, IN3, IN4, ENA, ENB, DUTY)
 
-Motor.forward()
+Motor.forward() #you can change it to calibrate also Motor.rightturn(), Motor.leftturn() etc.
 time.sleep(4)
 Motor.stop()
