@@ -2,7 +2,7 @@
 
 A lightweight MicroPython library for controlling two DC motors using an ESP32 and the L298N motor driver.
 
-This library was originally developed as part of my high school final electronics project. After successfully using it in my own robot, I decided to publish it as open source so future students and hobbyists could easily use it in their own projects.
+This library was originally developed as part of my high school final electronics and computer engineering project. After successfully using it in my own robot, I decided to publish it as open source so future students and hobbyists could easily use it in their own projects.
 
 ---
 
