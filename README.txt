@@ -1,14 +1,13 @@
-Introduction
-
-ESP32 Motor Library
+ESP32 Motor Library for MicroPython
 Created by Maor Hai Shkolnik
 
-Designed for MicroPython and the L298N motor driver.
+Introduction:
 
+Designed for MicroPython and the L298N motor driver.
 This library was originally developed as part of a high-school Electronics and Computer Engineering project
 and is released as open source so future students can use, improve and learn from it.
 
-Tutorial
+Tutorial:
 
 In the Motor Library there are 7 functions for usage.
 the functions featured in  the library are:
