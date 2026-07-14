@@ -1,43 +1,129 @@
-ESP32 Motor Library for MicroPython
-Created by Maor Hai Shkolnik
+# ESP32 L298N Motor Library
 
-Introduction:
+A lightweight MicroPython library for controlling two DC motors using an ESP32 and the L298N motor driver.
 
-Designed for MicroPython and the L298N motor driver.
-This library was originally developed as part of a high-school Electronics and Computer Engineering project
-and is released as open source so future students can use, improve and learn from it.
+This library was originally developed as part of my high school final electronics project. After successfully using it in my own robot, I decided to publish it as open source so future students and hobbyists could easily use it in their own projects.
 
-Tutorial:
+---
 
-In the Motor Library there are 7 functions for usage.
-the functions featured in  the library are:
-- normalforward - for driving forward
-- backward - for driving backwards
-- stop - for stop driving 
-- leftturn - for turning left
-- rightturn - for turning right
-- backturn - for turning back (turn 180 degrees)
-- rightfix - for slightly driving left *optional depending on task
-- leftfix - for slightly driving right *optional depending on task
+## Features
 
-In order to use the library the user needs to upload the library file "motor.py" into the ESP32 Storage, and in the Main code
-to set the library with his own parameters, the library needs to detect from the user 7 parameters.
-also, please change the time and calibration for your own project, every wheel can be different, therfore you would need to change some paramters in the library according to your project,
-please check the code of the library and read all the marks I have written for you and to what value to set.
-list of parameters needed:
-- IN1 - Pin of IN1
-- IN2 - Pin of IN2
-- IN3 - Pin of IN3
-- IN4 - Pin of IN4 
-- Ena - Pin of Enable A for PWM (Engine left)
-- Enb - Pin of Enable B for PWM (Engine Right)
-- Duty - Value of bits that the Engine will be turned on, the value should be between 0 - 65536,
-the lower the value of duty the slower the speed of the wheels will be. in order to understand it better,
-learn about PWM.
+- Forward movement
+- Backward movement
+- Left turn
+- Right turn
+- Stop
+- PWM speed control
+- Independent motor calibration
+- Simple and lightweight API
 
-In order to see how the library works in real time, check out the "Examples" folder, I have Uploaded to there
-real life usage of the code, I have uploaded also a test file in order for you to check if it works for you.
+---
 
-Also, I have added "Calibration.py", this code will help you do the calibration test needed in order to do calibration and check the values needed for yourself.
+## Hardware
 
-if everything is working then good luck with your project and have fun with it! :-) 
+Designed for:
+
+- ESP32
+- L298N Motor Driver
+- Two DC Motors
+- MicroPython
+
+---
+
+# ⚠ Important - Motor Calibration
+
+Every pair of DC motors is slightly different.
+
+Because of manufacturing tolerances, one motor may spin faster than the other even when both receive the same PWM value.
+
+For this reason, **the library includes calibration variables that should be adjusted before using the robot.**
+
+Inside `motor.py` you will find values similar to:
+
+```python
+LEFT_FIX = ...
+RIGHT_FIX = ...
+```
+
+Adjust these values until the robot drives straight when moving forward.
+
+Usually this calibration only needs to be done once for each robot.
+
+---
+
+## Wiring
+
+Example GPIO configuration:
+
+| ESP32 | L298N |
+|-------|-------|
+| GPIO26 | IN1 |
+| GPIO27 | IN2 |
+| GPIO25 | IN3 |
+| GPIO33 | IN4 |
+| GPIO14 | ENA |
+| GPIO32 | ENB |
+
+Modify the pin numbers if your hardware is different.
+
+---
+
+## Installation
+
+1. Copy `motor.py` to your ESP32.
+2. Adjust the GPIO pins if necessary.
+3. Perform motor calibration.
+4. Import the library into your project.
+
+```python
+from motor import Motor
+```
+
+---
+
+## Quick Example
+
+```python
+from motor import Motor
+
+car = Motor(...)
+
+car.forward()
+car.left()
+car.right()
+car.backward()
+car.stop()
+```
+
+---
+
+## Example Programs
+
+Examples included in this repository:
+
+- Basic movement test
+- Motor calibration
+- Square driving demo
+
+---
+
+## Future Improvements
+
+- Additional examples
+- Better documentation
+- Support for more motor drivers
+- More configurable speed profiles
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Author
+
+**Maor Hai Shkolnik**
+
+If this library helped your project, consider giving the repository a ⭐.
