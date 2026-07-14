@@ -84,15 +84,15 @@ from motor import Motor
 ## Quick Example
 
 ```python
-from motor import Motor
+from motor import MOTOR
 
-car = Motor(...)
+Motor = Motor(...)
 
-car.forward()
-car.left()
-car.right()
-car.backward()
-car.stop()
+Motor.forward()
+Motor.leftturn()
+Motor.rightturn()
+Motor.backward()
+Motor.stop()
 ```
 
 ---
